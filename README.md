@@ -4,6 +4,7 @@ desenvolvedor de software
 
 GitHub: https://github.com/otavio-esteves  
 E-mail: otaviob925@gmail.com  
+WhatsApp: (62) 98321465  
 Status: disponível para novos desafios e projetos
 
 ---
@@ -42,4 +43,4 @@ Setor de Compras e Licitações
 
 ---
 
-Contato: otaviob925@gmail.com · https://github.com/otavio-esteves
+Contato: otaviob925@gmail.com · (62) 98321465 · https://github.com/otavio-esteves

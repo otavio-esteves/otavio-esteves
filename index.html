@@ -65,6 +65,7 @@
       position: fixed;
       top: 0;
       left: 0;
+      right: 0;
       width: 100%;
       z-index: 100;
       padding: 1.75rem 2rem;
@@ -79,13 +80,22 @@
       letter-spacing: 0.06em;
     }
 
+    .navbar nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 1100px;
+    }
+
     .nav-links {
       display: flex;
       gap: 3rem;
       align-items: center;
       justify-content: center;
       list-style: none;
-      margin: 0;
+      margin: 0 auto;
       padding: 0;
     }
 
@@ -110,7 +120,7 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-      font-weight: 300;
+      font-weight: 400;
     }
 
     /* SEÇÕES COM ROLAGEM LIVRE E FLUÍDA TOTALMENTE CENTRALIZADAS */
@@ -165,7 +175,7 @@
 
     .hero-title {
       font-size: clamp(2rem, 7.5vw, 6.5rem);
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: -0.01em;
       line-height: 1;
       text-transform: uppercase;
@@ -184,10 +194,12 @@
       text-align: center;
     }
 
+
+
     /* TÍTULOS E CONTEÚDO (TIPOGRAFIA LEVE E CENTRALIZADA) */
     .slide-headline {
       font-size: clamp(2.5rem, 6vw, 5.2rem);
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: -0.01em;
       line-height: 1.05;
       text-transform: uppercase;
@@ -291,13 +303,34 @@
       font-weight: 300;
     }
 
+    /* CONTATO TELEFONE NÍTIDO */
+    .contact-phone {
+      font-size: clamp(1.2rem, 2.2vw, 1.75rem);
+      font-weight: 400;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      margin-bottom: 2.25rem;
+      text-align: center;
+    }
+
+    .contact-phone a {
+      color: var(--white);
+      transition: opacity 0.2s ease;
+    }
+
+    .contact-phone a:hover {
+      opacity: 0.6;
+    }
+
     /* RESPONSIVIDADE */
     @media (max-width: 768px) {
       .navbar {
-        padding: 1.25rem 1rem;
+        padding: 1.25rem 0.75rem;
       }
       .nav-links {
-        gap: 1.5rem;
+        gap: clamp(0.75rem, 3.5vw, 1.5rem);
+        justify-content: center;
+        width: 100%;
       }
       .main-container {
         padding: 0 1.25rem;
@@ -363,7 +396,7 @@
 
     <!-- HERO INICIAL: NOME E SUBTÍTULO CENTRALIZADOS -->
     <section class="hero-view" id="inicio">
-      <div class="reveal-content is-visible">
+      <div class="reveal-content">
         <h1 class="hero-title">OTÁVIO ESTEVES</h1>
         <p class="hero-subtitle">desenvolvedor de software</p>
       </div>
@@ -467,12 +500,16 @@
     <section class="section-view" id="contato">
       <div class="reveal-content">
         <h2 class="slide-headline">VAMOS CONVERSAR</h2>
-        <p class="slide-desc">
+        <p class="slide-desc" style="margin-bottom: 0.5rem;">
           otaviob925@gmail.com
         </p>
-        <div class="slide-actions" style="margin-top: 1rem;">
+        <p class="contact-phone">
+          <a href="tel:+556298321465">(62) 98321465</a>
+        </p>
+        <div class="slide-actions">
           <button class="action-link" onclick="copyEmail()" id="copyBtn">copiar e-mail</button>
           <a href="mailto:otaviob925@gmail.com" class="action-link">enviar mensagem</a>
+          <a href="https://wa.me/556298321465" target="_blank" rel="noopener" class="action-link">whatsapp</a>
           <a href="https://github.com/otavio-esteves" target="_blank" rel="noopener" class="action-link">github</a>
         </div>
       </div>
