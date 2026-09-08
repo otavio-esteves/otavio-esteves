@@ -3,13 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OTÁVIO ESTEVES</title>
-  <meta name="description" content="Otávio Esteves · Desenvolvedor de Software" />
+  <title>Otávio Esteves — Software, Automação e IA Local</title>
+  <meta name="description" content="Portfólio de Otávio Esteves: desenvolvimento de software, automação, aplicações web e mobile, arquitetura de sistemas e inteligência artificial local." />
+  <meta name="author" content="Otávio Esteves" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
+
+  <link rel="canonical" href="https://otavio-esteves.github.io/otavio-esteves/" />
+
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Otávio Esteves",
+    "url": "https://otavio-esteves.github.io/otavio-esteves/",
+    "jobTitle": "Desenvolvedor de Software",
+    "sameAs": [
+      "https://github.com/otavio-esteves"
+    ],
+    "knowsAbout": [
+      "Desenvolvimento de software",
+      "Arquitetura de software",
+      "Laravel",
+      "Kotlin",
+      "Android",
+      "Docker",
+      "Inteligência artificial local",
+      "Automação de processos"
+    ]
+  }
+  </script>
 
   <!-- Google Fonts: Roboto & Google Sans fallbacks -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after {
@@ -58,6 +88,24 @@
 
     a:hover {
       opacity: 0.5;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--white);
+      outline-offset: 6px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     /* NAVBAR: LINKS SUPERIORES TOTALMENTE CENTRALIZADOS */
@@ -192,9 +240,15 @@
       text-transform: lowercase;
       color: var(--gray-light);
       text-align: center;
+      display: inline-flex;
+      align-items: baseline;
+      justify-content: center;
+      white-space: nowrap;
     }
 
-
+    .typed-word {
+      display: inline;
+    }
 
     /* TÍTULOS E CONTEÚDO (TIPOGRAFIA LEVE E CENTRALIZADA) */
     .slide-headline {
@@ -270,27 +324,26 @@
       opacity: 0.5;
     }
 
-    /* STACK LIST (EXPERIÊNCIA) */
-    .stack-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.75rem;
-      max-width: 700px;
+    /* STACK GRID */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.25rem 2.5rem;
+      max-width: 820px;
       width: 100%;
       margin: 2.5rem auto 0 auto;
       text-align: center;
     }
 
-    .stack-item {
+    .stack-card {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0.35rem;
-      font-size: 0.95rem;
       text-align: center;
     }
 
-    .stack-item-cat {
+    .stack-card-cat {
       color: var(--gray-mid);
       text-transform: uppercase;
       font-size: 0.75rem;
@@ -298,28 +351,11 @@
       font-weight: 400;
     }
 
-    .stack-item-val {
+    .stack-card-val {
       color: var(--white);
+      font-size: 0.95rem;
       font-weight: 300;
-    }
-
-    /* CONTATO TELEFONE NÍTIDO */
-    .contact-phone {
-      font-size: clamp(1.2rem, 2.2vw, 1.75rem);
-      font-weight: 400;
-      color: var(--white);
-      letter-spacing: 0.04em;
-      margin-bottom: 2.25rem;
-      text-align: center;
-    }
-
-    .contact-phone a {
-      color: var(--white);
-      transition: opacity 0.2s ease;
-    }
-
-    .contact-phone a:hover {
-      opacity: 0.6;
+      line-height: 1.6;
     }
 
     /* RESPONSIVIDADE */
@@ -343,8 +379,28 @@
         min-height: 85vh;
         padding: 4rem 0 0 0;
       }
-      .stack-item {
-        gap: 0.25rem;
+      .stack-grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+        margin-top: 2rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal-content {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      a,
+      .nav-links a,
+      .action-link {
+        transition: none;
       }
     }
 
@@ -373,6 +429,12 @@
         color: #000000;
         text-decoration: none;
       }
+      .stack-card-cat {
+        color: #555555;
+      }
+      .stack-card-val {
+        color: #000000;
+      }
     }
   </style>
 </head>
@@ -381,7 +443,7 @@
 
   <!-- NAVBAR: LINKS SUPERIORES CENTRALIZADOS -->
   <header class="navbar">
-    <nav>
+    <nav aria-label="Navegação principal">
       <ul class="nav-links">
         <li><a href="#inicio">início</a></li>
         <li><a href="#sobre">sobre</a></li>
@@ -398,7 +460,10 @@
     <section class="hero-view" id="inicio">
       <div class="reveal-content">
         <h1 class="hero-title">OTÁVIO ESTEVES</h1>
-        <p class="hero-subtitle">desenvolvedor de software</p>
+        <p class="hero-subtitle">
+          <span class="sr-only">desenvolvedor de software, automação, android e sistemas locais</span>
+          <span aria-hidden="true">desenvolvedor de&nbsp;<span class="typed-word" id="typedWord">software</span></span>
+        </p>
       </div>
     </section>
 
@@ -407,10 +472,10 @@
       <div class="reveal-content">
         <h2 class="slide-headline">SOBRE</h2>
         <p class="slide-desc">
-          Desenvolvimento de software focado em arquitetura limpa, ecossistema Laravel e automação de fluxos operacionais.
+          Desenvolvimento de software com foco em arquitetura, automação, aplicações web e mobile e inteligência artificial local.
         </p>
         <p class="slide-details">
-          Graduado em Análise e Desenvolvimento de Sistemas (IFG). Formação contínua em arquitetura de software e resiliência de sistemas pelo Curso.dev.
+          Graduado em Análise e Desenvolvimento de Sistemas pelo Instituto Federal de Goiás (IFG). Formação contínua em arquitetura de software, resiliência de sistemas e construção de produtos orientados a problemas reais.
         </p>
         <div class="slide-actions">
           <a href="#projetos" class="action-link">ver projetos</a>
@@ -430,7 +495,7 @@
           Separação estrita de camadas (Application, Domain, Infrastructure com contratos Eloquent), PostgreSQL 18 e integração contínua automatizada.
         </p>
         <div class="slide-actions">
-          <a href="https://github.com/otavio-esteves/Tasks" target="_blank" rel="noopener" class="action-link">github / tasks</a>
+          <a href="https://github.com/otavio-esteves/Tasks" target="_blank" rel="noopener noreferrer" class="action-link">github / tasks</a>
         </div>
       </div>
     </section>
@@ -441,13 +506,13 @@
         <h2 class="slide-headline">O.R.I.O.N.</h2>
         <p class="slide-stack">LINUX · DOCKER-FIRST · LOCAL AI · ADRS</p>
         <p class="slide-desc">
-          Operational Reasoning & Intelligent Orchestration Network.
+          Agente pessoal para Android orientado a IA local, automação e orquestração de tarefas.
         </p>
         <p class="slide-details">
-          Pesquisa e execução de inteligência artificial local orientada por registros formais de decisões arquiteturais e compilação hermética.
+          Projeto Docker-first com foco em execução local, decisões arquiteturais documentadas, integração com modelos de IA e evolução orientada por testes e benchmarks.
         </p>
         <div class="slide-actions">
-          <a href="https://github.com/otavio-esteves/O.R.I.O.N" target="_blank" rel="noopener" class="action-link">github / o.r.i.o.n</a>
+          <a href="https://github.com/otavio-esteves/O.R.I.O.N" target="_blank" rel="noopener noreferrer" class="action-link">github / o.r.i.o.n</a>
         </div>
       </div>
     </section>
@@ -458,13 +523,13 @@
         <h2 class="slide-headline">FINANCES</h2>
         <p class="slide-stack">KOTLIN · JETPACK COMPOSE · ROOM · OFFLINE-FIRST</p>
         <p class="slide-desc">
-          Controle financeiro pessoal nativo, operando de forma 100% local com privacidade absoluta.
+          Controle financeiro pessoal nativo e offline-first, com dados armazenados localmente no dispositivo.
         </p>
         <p class="slide-details">
-          Arquitetura desacoplada (UI, Presentation, Domain, Data) e persistência local via Room Database.
+          Arquitetura desacoplada em camadas (UI, Presentation, Domain e Data), interface em Jetpack Compose e persistência local com Room Database.
         </p>
         <div class="slide-actions">
-          <a href="https://github.com/otavio-esteves/Finances" target="_blank" rel="noopener" class="action-link">github / finances</a>
+          <a href="https://github.com/otavio-esteves/Finances" target="_blank" rel="noopener noreferrer" class="action-link">github / finances</a>
         </div>
       </div>
     </section>
@@ -472,25 +537,29 @@
     <!-- EXPERIÊNCIA & STACK -->
     <section class="section-view" id="experiencia">
       <div class="reveal-content">
-        <h2 class="slide-headline">EXPERIÊNCIA</h2>
+        <h2 class="slide-headline">EXPERIÊNCIA & STACK</h2>
         <p class="slide-desc">
           Prefeitura Municipal · Setor de Compras e Licitações.
         </p>
         <p class="slide-details">
           Automação de processos administrativos, conformidade e engenharia de software aplicada à gestão pública.
         </p>
-        <div class="stack-list">
-          <div class="stack-item">
-            <span class="stack-item-cat">Core</span>
-            <span class="stack-item-val">PHP 8.2+, Laravel (11/12), Livewire 3, Blade</span>
+        <div class="stack-grid">
+          <div class="stack-card">
+            <span class="stack-card-cat">Backend & Web</span>
+            <span class="stack-card-val">PHP 8.2+, Laravel (11/12), Livewire 3, Blade, APIs RESTful</span>
           </div>
-          <div class="stack-item">
-            <span class="stack-item-cat">Dados</span>
-            <span class="stack-item-val">PostgreSQL, MySQL, Redis, Eloquent ORM</span>
+          <div class="stack-card">
+            <span class="stack-card-cat">Android & Mobile</span>
+            <span class="stack-card-val">Kotlin, Jetpack Compose, Room Database, Offline-First</span>
           </div>
-          <div class="stack-item">
-            <span class="stack-item-cat">Ambiente</span>
-            <span class="stack-item-val">Linux (Debian), i3wm, Shell Scripting, Docker, Git</span>
+          <div class="stack-card">
+            <span class="stack-card-cat">Dados & Cache</span>
+            <span class="stack-card-val">PostgreSQL, MySQL, Redis, Eloquent ORM</span>
+          </div>
+          <div class="stack-card">
+            <span class="stack-card-cat">Engenharia & Ambiente</span>
+            <span class="stack-card-val">Linux (Debian), Docker, Clean Architecture, ADRs, Shell Scripting, Git</span>
           </div>
         </div>
       </div>
@@ -500,17 +569,14 @@
     <section class="section-view" id="contato">
       <div class="reveal-content">
         <h2 class="slide-headline">VAMOS CONVERSAR</h2>
-        <p class="slide-desc" style="margin-bottom: 0.5rem;">
+        <p class="slide-desc" style="margin-bottom: 2.25rem;">
           otaviob925@gmail.com
         </p>
-        <p class="contact-phone">
-          <a href="tel:+556298321465">(62) 98321465</a>
-        </p>
         <div class="slide-actions">
-          <button class="action-link" onclick="copyEmail()" id="copyBtn">copiar e-mail</button>
+          <button type="button" class="action-link" onclick="copyEmail()" id="copyBtn">copiar e-mail</button>
           <a href="mailto:otaviob925@gmail.com" class="action-link">enviar mensagem</a>
-          <a href="https://wa.me/556298321465" target="_blank" rel="noopener" class="action-link">whatsapp</a>
-          <a href="https://github.com/otavio-esteves" target="_blank" rel="noopener" class="action-link">github</a>
+          <a href="https://wa.me/556298321465" target="_blank" rel="noopener noreferrer" class="action-link">whatsapp</a>
+          <a href="https://github.com/otavio-esteves" target="_blank" rel="noopener noreferrer" class="action-link">github</a>
         </div>
       </div>
     </section>
@@ -519,46 +585,107 @@
 
   <script>
     const reveals = document.querySelectorAll('.reveal-content');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        }
-      });
-    }, {
-      threshold: 0.2
-    });
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    reveals.forEach(el => observer.observe(el));
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      reveals.forEach(el => el.classList.add('is-visible'));
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.2
+      });
+
+      reveals.forEach(el => observer.observe(el));
+    }
 
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
 
-    window.addEventListener('scroll', () => {
-      let current = '';
+    function updateActiveNav() {
+      let current = 'inicio';
+
       sections.forEach(section => {
         const sectionTop = section.offsetTop - 180;
-        if (pageYOffset >= sectionTop) {
+        if (window.scrollY >= sectionTop) {
           current = section.getAttribute('id');
         }
       });
 
+      let activeTarget = (current === 'orion' || current === 'finances') ? 'projetos' : current;
+
+      if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 40) {
+        activeTarget = 'contato';
+      }
+
       navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
+        const isActive = link.getAttribute('href') === `#${activeTarget}`;
+        link.classList.toggle('active', isActive);
+        if (isActive) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
         }
       });
-    });
+    }
 
-    function copyEmail() {
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
+
+    const typedWord = document.getElementById('typedWord');
+    const typingTerms = ['software', 'automação', 'android', 'sistemas locais'];
+
+    const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+    async function runTypingLoop() {
+      if (!typedWord || prefersReducedMotion) return;
+
+      let currentIndex = 0;
+
+      while (true) {
+        await sleep(1800);
+
+        while (typedWord.textContent.length > 0) {
+          typedWord.textContent = typedWord.textContent.slice(0, -1);
+          await sleep(50);
+        }
+
+        await sleep(250);
+
+        currentIndex = (currentIndex + 1) % typingTerms.length;
+        const nextTerm = typingTerms[currentIndex];
+
+        for (const char of nextTerm) {
+          typedWord.textContent += char;
+          await sleep(90);
+        }
+      }
+    }
+
+    runTypingLoop();
+
+    async function copyEmail() {
       const email = 'otaviob925@gmail.com';
-      navigator.clipboard.writeText(email).then(() => {
-        const btn = document.getElementById('copyBtn');
-        const original = btn.textContent;
+      const btn = document.getElementById('copyBtn');
+      if (!btn) return;
+      const original = btn.textContent;
+
+      try {
+        await navigator.clipboard.writeText(email);
         btn.textContent = 'e-mail copiado';
-        setTimeout(() => { btn.textContent = original; }, 2000);
-      });
+      } catch {
+        window.location.href = `mailto:${email}`;
+        btn.textContent = 'abrindo e-mail';
+      }
+
+      setTimeout(() => {
+        btn.textContent = original;
+      }, 2000);
     }
   </script>
 
